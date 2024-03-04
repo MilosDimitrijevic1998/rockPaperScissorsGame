@@ -2,6 +2,10 @@ const choices = ['rock', 'paper', 'scissors']; //niz iz kojeg computer bira prek
 
 const buttons = document.querySelectorAll('.btn'); //selektujem svu dugmad
 const message = document.querySelector('.result');
+let player = 0;
+let playerScore = document.querySelector('.playerScore');
+let computer = 0;
+let computerScore = document.querySelector('.computerScore');
 
 buttons.forEach(function(button){
   button.addEventListener("click" , function() {
@@ -15,13 +19,29 @@ buttons.forEach(function(button){
     if(playerChoice === computerChoice){
       message.textContent = "Its Draw!"
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
-      message.textContent = "You Win!"
+      if(player < 3) {
+        message.textContent = "You Win!";
+        player++;
+        playerScore.textContent = player;
+      }
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-      message.textContent = "You Win!"
+      if(player < 3) {
+        message.textContent = "You Win!";
+        player++;
+        playerScore.textContent = player;
+      }
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-      message.textContent = "You Win!"
+      if(player < 3) {
+        message.textContent = "You Win!";
+        player++;
+        playerScore.textContent = player;
+      }
     } else {
-      message.textContent = "Computer Win!"
+      if(computer < 3){
+        message.textContent = "Computer Win!"
+        computer++;
+        computerScore.textContent = computer;
+      }
     }
   })
 });

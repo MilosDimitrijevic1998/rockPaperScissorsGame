@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  text-align: center;
+}
+.mainHeading{
+  font-size: 3rem;
+  margin-top: 1rem;
+}
+.subHeading{
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.score{
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.btn{
+  font-size: 5rem;
+  margin: 1rem;
+  padding: 1rem;
+}
