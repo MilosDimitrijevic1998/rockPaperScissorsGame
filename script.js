@@ -1,6 +1,7 @@
 const choices = ['rock', 'paper', 'scissors']; //niz iz kojeg computer bira preko math.random
 
 const buttons = document.querySelectorAll('.btn'); //selektujem svu dugmad
+const message = document.querySelector('.result');
 
 buttons.forEach(function(button){
   button.addEventListener("click" , function() {
@@ -12,22 +13,16 @@ buttons.forEach(function(button){
     console.log('-----------')
 
     if(playerChoice === computerChoice){
-      console.log('Its Draw!');
+      message.textContent = "Its Draw!"
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
-      console.log('You win');
+      message.textContent = "You Win!"
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-      console.log('You win');
+      message.textContent = "You Win!"
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-      console.log('You win');
+      message.textContent = "You Win!"
     } else {
-      console.log('Computer win');
+      message.textContent = "Computer Win!"
     }
-    // else if (playerChoice === 'rock' && computerChoice === 'scissors' ? console.log('You win!') : console.log('Computer win!')){
-    // }
-    // else if (playerChoice === 'paper' && computerChoice === 'rock' ? console.log('You win!') : console.log('Computer win!')){
-    // }
-    // else if (playerChoice === 'scissors' && computerChoice === 'paper' ? console.log('You win!') : console.log('Computer win!')){
-    // }
   })
 });
 
