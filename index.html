@@ -4,26 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
   <title>Rock, Paper, Scissors Game</title>
 </head>
 <body>
 
-  <h1 class="mainHeading">Rock, Paper, Scissors Game</h1>
+  <div class="wrapper">
+    <h1 class="mainHeading">Rock, Paper, Scissors Game</h1>
 
-  <h2 class="subHeading">First who reaches score of 3 wins the game!</h2>
+    <h2 class="subHeading">First who reaches score of 3 wins the game!</h2>
 
-  <p class="score">Player score: <span class="playerScore">0</span> </p>
-  <p class="score">Computer score: <span class="computerScore">0</span> </p>
+    <p class="score">Your score: <span class="playerScore">0</span> </p>
+    <p class="score">Computer score: <span class="computerScore">0</span> </p>
 
-  <button class="btn rock" data-value="rock">👊</button>
-  <button class="btn paper" data-value="paper">🖐</button>
-  <button class="btn scissors" data-value="scissors">✌️</button>
+    <button class="btn rock" data-value="rock">👊</button>
+    <button class="btn paper" data-value="paper">🖐</button>
+    <button class="btn scissors" data-value="scissors">✌️</button>
 
-  <p class="result"></p>
+    <p class="result"></p>
+  </div>
 
   <div class="playAgainOverlay">
     <p class="playAgainMessage"></p>
-    <p>Do you want to play again?</p>
+    <p class="doYouWantToPlayAgain">Do you want to play again?</p>
     <button class="playAgainButotn">Play Again!</button>
   </div>
 

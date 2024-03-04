@@ -23,7 +23,7 @@ buttons.forEach(function(button){
         message.textContent = "You Win!";
         player++;
         playerScore.textContent = player;
-      }
+      } 
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
       if(player < 3) {
         message.textContent = "You Win!";
@@ -43,8 +43,24 @@ buttons.forEach(function(button){
         computerScore.textContent = computer;
       }
     }
+
+    if (player === 3) {
+      document.querySelector('.playAgainOverlay').style.display = "flex";
+      document.querySelector('.playAgainMessage').textContent = "You Won!";
+    } else if (computer === 3) {
+      document.querySelector('.playAgainOverlay').style.display = "flex";
+      document.querySelector('.playAgainMessage').textContent = "Computer Won!";
+    }
   })
 });
+
+document.querySelector('.playAgainButotn').addEventListener('click' , function(){
+  document.querySelector('.playAgainOverlay').style.display = "none";
+  player = 0;
+  playerScore.textContent = player;
+  computer = 0;
+  computerScore.textContent = computer;
+})
 
 
 
