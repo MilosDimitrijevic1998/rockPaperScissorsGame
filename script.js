@@ -1,26 +1,24 @@
-//napravi setComputerChoice i setPlayerChoice funkcije tako da ukoliko argument koji prosledjujem nije rock paper ili scissors ona console.loguje molimo vas izaberite rock paper ili scissors i ona se onda returnuje
+const buttons = document.querySelectorAll('.btn'); 
 
-const buttons = document.querySelectorAll('.btn'); //selektujem svu dugmad
-
-//*** MAIN STATE *** 
+//--------------------> MAIN STATE <--------------------
 const mainState = () => {
   
   //COMPUTER CHOICES ARRAY
-  const computerChoicesArray = ['rock', 'paper', 'scissors']; //niz iz kojeg computer bira preko math.random
+  const computerChoicesArray = ['rock', 'paper', 'scissors']; 
   const getComputerArray = () => computerChoicesArray;
   const calculateComputerChoice = () => computerChoicesArray[Math.floor(Math.random() * 3)];
 
   //PLAYER COUNTER
   let player = 0;
-  const getPlayer = () => player; //return player
-  const incrementPlayer = () => player++; //increment player score
-  const setPlayer = (score) => player = score; //setting player score
+  const getPlayer = () => player; 
+  const incrementPlayer = () => player++; 
+  const setPlayer = (score) => player = score; 
   
   //COMPUTER COUNTER
   let computer = 0;
-  const getComputer = () => computer; //return computer
-  const incrementComputer = () => computer++; //increment computer score
-  const setComputer = (score) => computer = score; //setting computer score
+  const getComputer = () => computer; 
+  const incrementComputer = () => computer++; 
+  const setComputer = (score) => computer = score; 
   
   //PLAYER CHOICE
   let playerChoice ='';
@@ -47,13 +45,18 @@ const mainState = () => {
   return{getPlayer, incrementPlayer, setPlayer, getComputer, incrementComputer, setComputer, setPlayerChoice, getPlayerChoice, setComputerChoice, getComputerChoice, calculateComputerChoice, getComputerArray};
 }
 
-//*** UI STATE ***
+
+
+
+
+
+//--------------------> UI STATE <--------------------
 const uiState = () => {
 
     //PLAYER SCORE
     let playerScore = document.querySelector('.playerScore');
-    const getPlayerScore = () => playerScore; //return playerScore
-    const incrementPlayerScore = () => playerScore++; //increment playerScore
+    const getPlayerScore = () => playerScore;
+    const incrementPlayerScore = () => playerScore++;
     const setPlayerScore = (score) => playerScore.textContent = score;
     
     //COMPUTER SCORE
@@ -72,10 +75,13 @@ const uiState = () => {
 }
 
 
+//--------------------> SAVING STATES INTO CONST <--------------------
 const gameAPI = mainState();
 const uiAPI = uiState();
 
 
+
+//--------------------> PLAY GAME <--------------------
 buttons.forEach(function(button){
   button.addEventListener("click" , function() {
     
@@ -85,48 +91,36 @@ buttons.forEach(function(button){
     const computerChoice = gameAPI.calculateComputerChoice();
     gameAPI.setComputerChoice(computerChoice);
     
-    // console.log(`You choose ${playerChoice}`);
-    // console.log(`Computer choose ${computerChoice}`);
-    // console.log('-----------')
     
     if(gameAPI.getPlayerChoice() === gameAPI.getComputerChoice()){
       uiAPI.addMessage('Its Draw!');
-      // message.textContent = "Its Draw!"
+
     } else if (gameAPI.getPlayerChoice() === 'paper' && gameAPI.getComputerChoice() === 'rock') {
       if(gameAPI.getPlayer() < 3) {
         uiAPI.addMessage('You Win!');
         gameAPI.incrementPlayer();
         uiAPI.setPlayerScore(gameAPI.getPlayer());
-        // message.textContent = "You Win!";
-        // player++;
-        // playerScore.textContent = player;
       } 
+
     } else if (gameAPI.getPlayerChoice() === 'rock' && gameAPI.getComputerChoice() === 'scissors') {
       if(gameAPI.getPlayer() < 3) {
         uiAPI.addMessage("You Win!");
         gameAPI.incrementPlayer();
         uiAPI.setPlayerScore(gameAPI.getPlayer());
-        // message.textContent = "You Win!";
-        // player++;
-        // playerScore.textContent = player;
       }
+
     } else if (gameAPI.getPlayerChoice() === 'scissors' && gameAPI.getComputerChoice() === 'paper') {
       if(gameAPI.getPlayer() < 3) {
         uiAPI.addMessage("You Win!");
         gameAPI.incrementPlayer();
         uiAPI.setPlayerScore(gameAPI.getPlayer());
-        // message.textContent = "You Win!";
-        // player++;
-        // playerScore.textContent = player;
       }
+
     } else {
       if(gameAPI.getComputer() < 3){
         uiAPI.addMessage("Computer Win!");
         gameAPI.incrementComputer();
         uiAPI.setComputerScore(gameAPI.getComputer());
-        // message.textContent = "Computer Win!"
-        // computer++;
-        // computerScore.textContent = computer;
       }
     }
     
@@ -140,14 +134,16 @@ buttons.forEach(function(button){
   })
 });
 
+
+
+//--------------------> RESTART GAME <--------------------
 document.querySelector('.playAgainButotn').addEventListener('click' , function(){
   document.querySelector('.playAgainOverlay').style.display = "none";
-  gameAPI.getPlayer() = 0;
-  gameAPI.setPlayerScore() = gameAPI.getPlayer();
-  gameAPI.getComputer() = 0;
-  gameAPI.setComputerScore() = gameAPI.getComputer();
-  // computerScore.textContent = computer;
-  // playerScore.textContent = player;
+  gameAPI.setPlayer(0);
+  uiAPI.setPlayerScore(gameAPI.getPlayer());
+  gameAPI.setComputer(0);
+  uiAPI.setComputerScore(gameAPI.getComputer());
+  uiAPI.addMessage('');
 })
 
 
