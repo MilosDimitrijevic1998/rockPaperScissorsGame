@@ -145,35 +145,3 @@ document.querySelector('.playAgainButotn').addEventListener('click' , function()
   uiAPI.setComputerScore(gameAPI.getComputer());
   uiAPI.addMessage('');
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//napravi funkciju monsterCreator, ona treba da ima od state health(5) i speed(10). 
-//od funkcija treba da ima monsterAttack i monsterFly i heal. 
-//kad pozovem funkciju monsterAttack helt se smanjuje za 1, ako su helti dodju do 1 console.log(previse si ranjen ne mozes da napadas) i helti se ne smanjuju vise. 
-//kada pozovem funkciju heal helti se vracaju na 5.
-//kad pozovem funkciju monsterFly brzina se povecava za 5;
-//nakon svakog pozivanja funkcije console.log trenutne helte i brzinu 
